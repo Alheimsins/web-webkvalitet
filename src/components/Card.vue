@@ -33,7 +33,7 @@
       <v-layout row wrap>
         <slot></slot>
       </v-layout>
-      <p class="text-xs-center font-italic">Siste oppdatert {{ new Date(date).toLocaleString() }}</p>
+      <p class="text-xs-center font-italic">Sist oppdatert {{ new Date(date).toLocaleString() }}</p>
     </v-container>
   </v-card>
 </template>
