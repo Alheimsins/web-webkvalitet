@@ -15,7 +15,7 @@
           :url="item.url"
           :report-url="'https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=' + item.url"
           :number="++i"
-          :updated="item.updated"
+          :date="item.date"
         >
         <categories :categories="item.result">
         </categories>

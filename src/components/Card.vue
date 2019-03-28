@@ -1,9 +1,9 @@
 <template>
   <v-card>
-    <v-toolbar dark color="#557b69">
+    <v-toolbar dark color="black">
         <v-toolbar-title>
-          <v-avatar size="32" color="#96a997">
-            <span class="white--text headline">{{ number }}</span>
+          <v-avatar size="32" color="white">
+            <span class="black--text headline">{{ number }}</span>
           </v-avatar>
           {{ name }}
         </v-toolbar-title>
@@ -33,6 +33,7 @@
       <v-layout row wrap>
         <slot></slot>
       </v-layout>
+      <p class="text-xs-center font-italic">Siste oppdatert {{ new Date(date).toLocaleString() }}</p>
     </v-container>
   </v-card>
 </template>
@@ -44,7 +45,7 @@ export default {
     number: Number,
     url: String,
     reportUrl: String,
-    updated: String
+    date: String
   }
 }
 </script>
