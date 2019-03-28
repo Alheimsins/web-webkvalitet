@@ -3,6 +3,27 @@
     flex
     grid-list-lg
   >
+    <v-dialog
+      v-model="loading"
+      hide-overlay
+      persistent
+      lazy
+      width="300"
+    >
+      <v-card
+        color="black"
+        dark
+      >
+        <v-card-text>
+          Vennligst vent
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <v-layout
       column
       wrap
@@ -22,6 +43,10 @@
         </card>
       </v-flex>
     </v-layout>
+
+    <v-snackbar v-model="snackbar.active" :color="snackbar.type === 'error' ? 'error' : 'primary'" :bottom="true">
+      {{snackbar.message}}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -35,16 +60,34 @@ export default {
     categories
   },
   data: () => ({
-    results: []
+    results: [],
+    loading: true,
+    snackbar: {
+      active: false,
+      message: false,
+      type: false
+    }
   }),
+  methods: {
+    notification (msg, type = 'info') {
+      this.snackbar.message = msg
+      this.snackbar.type = type
+      this.snackbar.active = true
+    }
+  },
   async created () {
-    // const { data } = await this.$http.get('https://young-shape-9421.getsandbox.com/')
-    const { data } = await this.$http.get('https://webkvalitet.api.service.t-fk.no/')
-    const totalScore = categories => categories.reduce((prev, cur) => prev + cur.score, 0)
-    const result = data
-      .map(item => ({ ...item, total: totalScore(item.result) }))
-      .sort((a, b) => (a.total < b.total) ? 1 : -1)
-    this.results = result
+    try {
+      const { data } = await this.$http.get('https://webkvalitet.api.service.t-fk.no/')
+      const totalScore = categories => categories.reduce((prev, cur) => prev + cur.score, 0)
+      this.results = data
+        .map(item => ({ ...item, total: totalScore(item.result) }))
+        .sort((a, b) => (a.total < b.total) ? 1 : -1)
+      this.loading = false
+    } catch (error) {
+      console.log(error)
+      this.notification('Could not get data from API', 'error')
+      this.loading = false
+    }
   }
 }
 </script>
