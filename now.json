@@ -19,5 +19,5 @@
     {"src": "^/(.*).worker.js.map", "dest": "/$1.worker.js.map"},
     {"src": ".*", "dest": "/index.html"}
   ],
-  "alias": "fylker.webkvalitet.alheimsins.net"
+  "alias": "webkvalitet.alheimsins.net"
 }
