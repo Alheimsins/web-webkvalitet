@@ -10,7 +10,7 @@
         <v-card flat>
           <v-card-text class="text-xs-center">
             <p style="white-space: nowrap;">{{ category.title }}</p>
-            <v-tooltip bottom>
+            <v-tooltip max-width="200" bottom>
               <template v-slot:activator="{ on }">
                 <v-progress-circular
                   v-on="on"
@@ -21,7 +21,7 @@
                   {{ category.score }}
                 </v-progress-circular>
               </template>
-              <span>{{ category.description || 'None' }}</span>
+              <span>{{ category.description || 'No description' }}</span>
             </v-tooltip>
           </v-card-text>
         </v-card>
