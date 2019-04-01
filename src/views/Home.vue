@@ -38,8 +38,7 @@
           :number="++i"
           :date="item.date"
         >
-        <categories :categories="item.result">
-        </categories>
+          <categories :categories="item.result"></categories>
         </card>
       </v-flex>
     </v-layout>
@@ -80,7 +79,7 @@ export default {
       const { data } = await this.$http.get('https://webkvalitet.api.service.t-fk.no/')
       const totalScore = categories => categories.reduce((prev, cur) => prev + cur.score, 0)
       this.results = data
-        .map(item => ({ ...item, total: totalScore(item.result) }))
+        .map(item => ({ ...item, categories: item.result.sort((a, b) => a.title.localeCompare(b.title)), total: totalScore(item.result) }))
         .sort((a, b) => (a.total < b.total) ? 1 : -1)
       this.loading = false
     } catch (error) {
