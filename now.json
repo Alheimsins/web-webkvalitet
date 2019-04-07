@@ -1,5 +1,5 @@
 {
-  "name": "webkvalitet",
+  "name": "web-webkvalitet",
   "version": 2,
   "scope": "alheimsins",
   "builds": [
@@ -18,7 +18,14 @@
     {"src": "^/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
     {"src": "^/(.*).worker.js", "dest": "/$1.worker.js"},
     {"src": "^/(.*).worker.js.map", "dest": "/$1.worker.js.map"},
-    {"src": ".*", "dest": "/index.html"}
+    {"src": ".*", "dest": "/index.html", "headers": {
+      "Content-Security-Policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://webkvalitet.api.alheimsins.net; object-src 'none'; frame-ancestors 'none'",
+      "Strict-Transport-Security": "max-age=63072000;",
+      "X-Frame-Options": "DENY"
+    }}
   ],
-  "alias": "webkvalitet.alheimsins.net"
+  "alias": "webkvalitet.alheimsins.net",
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
