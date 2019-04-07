@@ -1,6 +1,7 @@
 {
   "name": "webkvalitet",
   "version": 2,
+  "scope": "alheimsins",
   "builds": [
     {"src": "package.json", "use": "@now/static-build"}
   ],
