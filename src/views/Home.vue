@@ -76,7 +76,7 @@ export default {
   },
   async created () {
     try {
-      const { data } = await this.$http.get('https://webkvalitet.api.alheimsins.net/partier')
+      const { data } = await this.$http.get('https://webkvalitet.api.alheimsins.net/fylker')
       const totalScore = categories => categories.reduce((prev, cur) => prev + cur.score, 0)
       this.results = data
         .map(item => ({ ...item, categories: item.result.sort((a, b) => a.title.localeCompare(b.title)), total: totalScore(item.result) }))
