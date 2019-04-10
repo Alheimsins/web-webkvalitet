@@ -15,8 +15,8 @@
     "roboto-fontface": "*",
     "vue": "2.6.10",
     "vue-resource": "1.5.1",
-    "vue-router": "3.0.2",
-    "vuetify": "1.5.9"
+    "vue-router": "3.0.3",
+    "vuetify": "1.5.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.5.5",
