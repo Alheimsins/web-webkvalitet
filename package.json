@@ -7,7 +7,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
   "dependencies": {
     "material-design-icons-iconfont": "4.0.5",
