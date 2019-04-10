@@ -20,11 +20,20 @@
         &nbsp;
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
-            <a v-on="on" :href="reportUrl" rel="noopener" target="_blank" aria-label="Gå til rapport">
+            <a v-on="on" :href="reportUrl" rel="noopener" target="_blank" aria-label="Gå til rapport fra Lighthouse">
               <v-icon>remove_red_eye</v-icon>
             </a>
           </template>
-          <span>Se rapport</span>
+          <span>Se Lighthouse rapport</span>
+        </v-tooltip>
+        &nbsp;
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <a v-on="on" :href="observatoryUrl" rel="noopener" target="_blank" aria-label="Gå til rapport fra Observatory">
+              <v-icon>remove_red_eye</v-icon>
+            </a>
+          </template>
+          <span>Se Observatory rapport</span>
         </v-tooltip>
     </v-toolbar>
     <v-container
@@ -45,6 +54,7 @@ export default {
     number: Number,
     url: String,
     reportUrl: String,
+    observatoryUrl: String,
     date: String
   }
 }

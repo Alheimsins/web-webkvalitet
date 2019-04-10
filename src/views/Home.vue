@@ -35,6 +35,7 @@
           :name="item.name"
           :url="item.url"
           :report-url="'https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=' + item.url"
+          :observatoryUrl="item.observatoryUrl"
           :number="++i"
           :date="item.date"
         >
@@ -53,6 +54,11 @@
 import card from '@/components/Card'
 import categories from '@/components/Categories'
 
+function addObservatoryUrl (item) {
+  const url = new URL(item.url)
+  const observatoryUrl = `https://observatory.mozilla.org/analyze/${url.host}?third-party=false`
+  return Object.assign({}, item, { observatoryUrl: observatoryUrl })
+}
 export default {
   components: {
     card,
@@ -81,6 +87,7 @@ export default {
       this.results = data
         .map(item => ({ ...item, categories: item.result.sort((a, b) => a.title.localeCompare(b.title)), total: totalScore(item.result) }))
         .sort((a, b) => (a.total < b.total) ? 1 : -1)
+        .map(addObservatoryUrl)
       this.loading = false
     } catch (error) {
       console.log(error)
