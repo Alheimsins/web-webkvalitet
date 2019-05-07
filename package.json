@@ -11,7 +11,7 @@
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
   },
   "dependencies": {
-    "material-design-icons-iconfont": "4.0.5",
+    "material-design-icons-iconfont": "5.0.1",
     "register-service-worker": "1.6.2",
     "roboto-fontface": "*",
     "vue": "2.6.10",
