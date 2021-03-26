@@ -27,7 +27,7 @@
     "@vue/eslint-config-standard": "6.0.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.22.0",
-    "eslint-plugin-vue": "7.7.0",
+    "eslint-plugin-vue": "7.8.0",
     "stylus": "0.54.8",
     "stylus-loader": "5.0.0",
     "vue-cli-plugin-vuetify": "2.3.1",
