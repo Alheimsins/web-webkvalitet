@@ -1,6 +1,8 @@
 # web-webkvalitet
 
-https://webkvalitet.alheimsins.net/
+This project is no longer active.
+
+It has been replaced by [webkvalitet-frontend](https://github.com/Alheimsins/webkvalitet-frontend)
 
 ## Project setup
 ```
